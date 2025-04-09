@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <h1>🛒 VMART</h1>
+        </div>
+        <form id="searchForm" class=" search-container">
+            <input type="text" id="searchInput" placeholder="search here..."/>
+            <input type="number" id="minPrice" placeholder="Min Price" min="0"/>
+            <input type="text" id="maxPrice" placeholder="Max Price" min= "0"/>
+        </form>
+
+        <div class="navbar-actions">
+            <a href="liked.html"><button title="Liked Products">❤️ Wishlist</button></a>
+            <button id="toggleTheme" title="Toggle Theme">🌙</button>
+            <button id="logoutBtn" title="Logout">Logout</button>
+        </div>
+    </header>
+
+    <div class="content-container">
+        <aside class="filter-section">
+            <h3>Filters</h3>
+            <div class="filter-group">
+                <label><input type="checkbox" class="filter-checkbox" value="electronics">Electronics</label>
+                <label><input type="checkbox" class="filter-checkbox" value="jewelery">Jewelry</label>
+                <label><input type="checkbox" class="filter-checkbox" value="men's clothing">Men's Clothing</label>
+                <label><input type="checkbox" class="filter-checkbox" value="women's clothing">Women's Clothing</label>
+            </div>
+        </aside>
+
+        <main class="product-list" id="productList">
+        
+        </main>
+    </div>
+
+
+    <script src="./ScriptFiles/application.js"></script>
+
+</body>
+</html>
