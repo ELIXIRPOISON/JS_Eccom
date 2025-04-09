@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Index</title>
+    <link rel="stylesheet" href="Design/style.css" />
 </head>
 <body>
     <header class="navbar">
         <div class="logo">
-            <h1>🛒 VMART</h1>
+            <h1 style="color: rgb(59, 59, 159);">🛒 VMART</h1>
         </div>
         <form id="searchForm" class=" search-container">
             <input type="text" id="searchInput" placeholder="search here..."/>
@@ -17,7 +18,7 @@
         </form>
 
         <div class="navbar-actions">
-            <a href="liked.html"><button title="Liked Products">❤️ Wishlist</button></a>
+            <a href="liked.html"><button style="border-radius: 15px;" title="Liked Products">❤️ Wishlist</button></a>
             <button id="toggleTheme" title="Toggle Theme">🌙</button>
             <button id="logoutBtn" title="Logout">Logout</button>
         </div>
@@ -28,7 +29,7 @@
             <h3>Filters</h3>
             <div class="filter-group">
                 <label><input type="checkbox" class="filter-checkbox" value="electronics">Electronics</label>
-                <label><input type="checkbox" class="filter-checkbox" value="jewelery">Jewelry</label>
+                <label><input type="checkbox" class="filter-checkbox" value="jewellery">Jewellery</label>
                 <label><input type="checkbox" class="filter-checkbox" value="men's clothing">Men's Clothing</label>
                 <label><input type="checkbox" class="filter-checkbox" value="women's clothing">Women's Clothing</label>
             </div>
@@ -37,7 +38,7 @@
                 <select id="categoryFilter">
                   <option value="">All</option>
                   <option value="electronics">Electronics</option>
-                  <option value="jewelery">Jewelry</option>
+                  <option value="jewelery">Jewelery</option>
                   <option value="men's clothing">Men's Clothing</option>
                   <option value="women's clothing">Women's Clothing</option>
                 </select>
