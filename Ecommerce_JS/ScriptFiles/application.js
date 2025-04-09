@@ -19,20 +19,27 @@ const productList = document.getElementById("productList");
         productList.innerHTML = "<p>Failed to load products.</p>";
       });
 
-    function displayProducts(products) {
-      productList.innerHTML = "";
-      products.forEach(product => {
-        const item = document.createElement("div");
-        item.className = "product";
-        item.innerHTML = `
-          <img src="${product.image}" alt="${product.title}" />
-          <h3>${product.title}</h3>
-          <p>$${product.price}</p>
-          <button onclick="viewDetails(${product.id})">View Details</button>
-        `;
-        productList.appendChild(item);
-      });
-    }
+      function displayProducts(products) {
+        productList.innerHTML = "";
+        const liked = JSON.parse(localStorage.getItem("likedProducts")) || [];
+      
+        products.forEach(product => {
+          const isLiked = liked.includes(product.id);
+          const item = document.createElement("div");
+          item.className = "product";
+          item.innerHTML = `
+            <img src="${product.image}" alt="${product.title}" />
+            <h3>${product.title}</h3>
+            <p>$${product.price}</p>
+            <button onclick="viewDetails(${product.id})">View Details</button>
+            <button class="like-btn ${isLiked ? 'liked' : ''}" onclick="toggleLike(${product.id}, this)">
+              ❤️
+            </button>
+          `;
+          productList.appendChild(item);
+        });
+      }
+      
 
     function viewDetails(id) {
       localStorage.setItem("selectedProductId", id);
@@ -67,7 +74,7 @@ const productList = document.getElementById("productList");
     searchInput.addEventListener("input", filterProducts);
     minPriceInput.addEventListener("input", filterProducts);
     maxPriceInput.addEventListener("input", filterProducts);
-    // categorySelect.addEventListener("change", filterProducts);
+    categorySelect.addEventListener("change", filterProducts);
 
     document.getElementById("toggleTheme").addEventListener("click", () => {
       const currentTheme = document.documentElement.getAttribute("data-theme");
@@ -75,29 +82,6 @@ const productList = document.getElementById("productList");
       document.documentElement.setAttribute("data-theme", newTheme);
       document.getElementById("toggleTheme").textContent = newTheme === "dark" ? "☀️" : "🌙";
     });
-
-    function displayProducts(products) {
-        productList.innerHTML = "";
-        const liked = JSON.parse(localStorage.getItem("likedProducts")) || [];
-      
-        products.forEach(product => {
-          const isLiked = liked.includes(product.id);
-          const item = document.createElement("div");
-          item.className = "product";
-      
-          item.innerHTML = `
-            <img src="${product.image}" alt="${product.title}" />
-            <h3>${product.title}</h3>
-            <p>$${product.price}</p>
-            <button onclick="viewDetails(${product.id})">View Details</button>
-            <button class="like-btn ${isLiked ? 'liked' : ''}" onclick="toggleLike(${product.id}, this)">
-              ❤️
-            </button>
-          `;
-      
-          productList.appendChild(item);
-        });
-      }
 
       function toggleLike(productId, btn) {
         let liked = JSON.parse(localStorage.getItem("likedProducts")) || [];
